@@ -1,3 +1,8 @@
+all: shapesVis.png out/triangulatedShapes.json
+
+out/triangulatedShapes.json: out/shapes.json shapesToTriangles.js
+	node shapesToTriangles.js < out/shapes.json > $@
+
 shapesVis.png : out/shapesVis.svg
 	inkscape $< --export-png=$@ --export-area-drawing
 	mogrify -flip $@
