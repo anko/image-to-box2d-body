@@ -1,16 +1,33 @@
 var H = require('highland')
 
+var newShape = function () {
+  return {
+    mainPath : null,
+    holePaths : []
+  }
+}
+
 var shapes = []
-var currentShape = []
+var currentShape = newShape()
+var currentPath = []
 var currentAbsolutePosition = { x : 0, y : 0 }
 
-var addPointToCurrentShape = function (x, y) {
-  currentShape.push({ x, y })
+var addPointToCurrentPath = function (x, y) {
+  currentPath.push({ x, y })
+}
+
+var endCurrentPath = function () {
+  if (!currentShape.mainPath) {
+    currentShape.mainPath = currentPath
+  } else {
+    currentShape.holePaths.push(currentPath)
+  }
+  currentPath = []
 }
 
 var endCurrentShape = function () {
   shapes.push(currentShape)
-  currentShape = []
+  currentShape = newShape()
 }
 
 var processLine = function (error, line, push, next) {
@@ -35,11 +52,13 @@ var processLine = function (error, line, push, next) {
           currentAbsolutePosition.y += y
           break
       }
-      addPointToCurrentShape(
+      addPointToCurrentPath(
           currentAbsolutePosition.x,
           currentAbsolutePosition.y)
 
       next()
+    } else if (line === 'closepath') {
+      endCurrentPath()
     } else if (line === 'fill') {
       endCurrentShape()
     }
