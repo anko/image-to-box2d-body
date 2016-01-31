@@ -1,0 +1,16 @@
+{
+  "name": "image-to-body",
+  "version": "0.1.0",
+  "description": "",
+  "main": "convertToShapes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anko <an@cyan.io> (http://an.cyan.io)",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^13.0.0",
+    "d3": "^3.5.14",
+    "highland": "^2.6.0"
+  }
+}
