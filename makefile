@@ -1,4 +1,11 @@
-all: shapesVis.png out/triangulatedShapes.json
+all: shapesVis.png game
+
+game: out/gameBuilt.js game.html
+
+.PHONY: all game
+
+out/gameBuilt.js: game.js out/triangulatedShapes.json
+	browserify -o $@ $<
 
 out/triangulatedShapes.json: out/shapes.json shapesToTriangles.js
 	node shapesToTriangles.js < out/shapes.json > $@

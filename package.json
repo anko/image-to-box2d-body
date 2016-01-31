@@ -9,6 +9,7 @@
   "author": "Anko <an@cyan.io> (http://an.cyan.io)",
   "license": "ISC",
   "dependencies": {
+    "box2dweb": "^2.1.0-b",
     "browserify": "^13.0.0",
     "d3": "^3.5.14",
     "highland": "^2.6.0",
