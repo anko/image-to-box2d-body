@@ -3,6 +3,8 @@
 [This question][1] [nerd-sniped][2] me hard, so I went on a magical journey to
 figure out how to turn a drawn raster image into Box2D objects.
 
+![sword and wand](https://cloud.githubusercontent.com/assets/5231746/12706961/9c9dfb1e-c88d-11e5-8738-f8927d8c9ffb.png) → ![box2d sword and wand](https://cloud.githubusercontent.com/assets/5231746/12707020/646bb46a-c88e-11e5-9d6b-16a0cab0739b.gif)
+
 This proof of concept expects to find an input file `input.png` in this project
 root directory.  Then run `make`. 
 
