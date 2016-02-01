@@ -1,4 +1,5 @@
 var H = require('highland')
+var simplify = require('simplify-js')
 
 var newShape = function () {
   return {
@@ -17,6 +18,9 @@ var addPointToCurrentPath = function (x, y) {
 }
 
 var endCurrentPath = function () {
+
+  currentPath = simplify(currentPath, 5)
+
   if (!currentShape.mainPath) {
     currentShape.mainPath = currentPath
   } else {
