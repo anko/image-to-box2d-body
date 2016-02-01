@@ -17,7 +17,7 @@ fixDef.friction = 0.5
 fixDef.restitution = 0.2
 var bodyDef = new b2BodyDef()
 
-var scale = function (coordinate) { return coordinate / 500 }
+var scale = function (coordinate) { return coordinate / 300 }
 
 // Create ground
 bodyDef.type = b2Body.b2_staticBody
