@@ -41,6 +41,7 @@ shapesAsTriangles.forEach(function (triangleList) {
   bodyDef.position = new v(0, 0)
   var body = world.CreateBody(bodyDef)
   triangleList.forEach(function (trianglePoints) {
+    trianglePoints.reverse()
     fixDef.shape = new b2PolygonShape()
     fixDef.shape.SetAsArray(trianglePoints.map(function (p) {
       return new v( scale(p.x), maxY - scale(p.y) )
