@@ -15,7 +15,7 @@ shapesVis.png : out/shapesVis.svg
 	mogrify -flip $@
 
 out/shapesVis.svg : out/visShapesBuilt.js
-	~/code/visbuild/index.js < $< > $@
+	$$(npm bin)/svg-pizzabase < $< > $@
 
 out/visShapesBuilt.js: visShapes.js out/shapes.json
 	browserify -o $@ visShapes.js
