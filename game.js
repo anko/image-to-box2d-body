@@ -33,6 +33,8 @@ world.CreateBody(bodyDef).CreateFixture(fixDef)
 bodyDef.position.Set(21.8, 13)
 world.CreateBody(bodyDef).CreateFixture(fixDef)
 
+var maxY = 300 / 30
+
 // Create dynamic bodies
 bodyDef.type = b2Body.b2_dynamicBody
 shapesAsTriangles.forEach(function (triangleList) {
@@ -41,7 +43,7 @@ shapesAsTriangles.forEach(function (triangleList) {
   triangleList.forEach(function (trianglePoints) {
     fixDef.shape = new b2PolygonShape()
     fixDef.shape.SetAsArray(trianglePoints.map(function (p) {
-      return new v( scale(p.x), scale(p.y) )
+      return new v( scale(p.x), maxY - scale(p.y) )
     }))
     body.CreateFixture(fixDef)
   })
