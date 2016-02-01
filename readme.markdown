@@ -13,13 +13,20 @@ You should find a bunch of intermediate formats in `out/` and if you open
 
 See the [`makefile`](makefile) for how the build steps work.
 
-Dependencies:
+## Dependencies:
 
 -   `make`
 -   Node.js and npm
 -   Inkscape
 -   potrace
 -   ImageMagick (`convert` and `mogrify`)
+
+## License
+
+[![CC0 license](https://licensebuttons.net/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+
+To the extent possible under law, I waive all copyright and related or
+neighbouring rights to this work.
 
 [1]: http://gamedev.stackexchange.com/questions/109216/box2d-dynamic-assignment-of-fixture-shapes-based-on-sprite-alpha-channel
 [2]: https://xkcd.com/356/

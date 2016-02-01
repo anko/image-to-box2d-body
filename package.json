@@ -1,13 +1,14 @@
 {
   "name": "image-to-body",
   "version": "0.1.0",
-  "description": "",
+  "description": "example automated pipeline for converting images into Box2D physics body data",
   "main": "convertToShapes.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Anko <an@cyan.io> (http://an.cyan.io)",
-  "license": "ISC",
+  "license": "CC0-1.0",
+  "repository": "anko/image-to-box2d-body",
   "dependencies": {
     "box2dweb": "^2.1.0-b",
     "browserify": "^13.0.0",
