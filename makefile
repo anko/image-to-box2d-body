@@ -54,5 +54,5 @@ out/alpha.png: input.png
 	convert $< -alpha extract $@
 
 clean:
-	# Delete all automatically generated files.
-	@rm -rf out/
+	@# Delete all automatically generated files.
+	@rm -rf out/ shapesVis.png
