@@ -9,7 +9,8 @@ var b2Fixture = b2.Dynamics.b2Fixture
 var b2FixtureDef = b2.Dynamics.b2FixtureDef
 var v = b2.Common.Math.b2Vec2
 
-var world = new b2World( new v(0, 10), true )
+// World with downward gravity
+var world = new b2World( new v(0, 10), 'sleep allowed' )
 
 var fixDef = new b2FixtureDef()
 fixDef.density = 1
@@ -19,7 +20,9 @@ var bodyDef = new b2BodyDef()
 
 var scale = function (coordinate) { return coordinate / 300 }
 
-// Create ground
+//
+// Static bodies (ground and walls)
+//
 bodyDef.type = b2Body.b2_staticBody
 fixDef.shape = new b2PolygonShape()
 fixDef.shape.SetAsBox(20, 2)
@@ -35,16 +38,29 @@ world.CreateBody(bodyDef).CreateFixture(fixDef)
 
 var maxY = 300 / 30
 
-// Create dynamic bodies
+//
+// Dynamic bodies (the drawn shapes)
+//
 bodyDef.type = b2Body.b2_dynamicBody
+// Create a new body for each shape (array of triangles).
 shapesAsTriangles.forEach(function (triangleList) {
   bodyDef.position = new v(0, 0)
   var body = world.CreateBody(bodyDef)
+
+  // Create a new fixture for each triangle belonging to this shape, and add it
+  // to the body.
   triangleList.forEach(function (trianglePoints) {
+
+    // The triangle's points come in clockwise order, but Box2D expects them
+    // counterclockwise.
     trianglePoints.reverse()
+
     fixDef.shape = new b2PolygonShape()
     fixDef.shape.SetAsArray(trianglePoints.map(function (p) {
-      return new v( scale(p.x), maxY - scale(p.y) )
+      return new v(
+          scale(p.x),
+          maxY - scale(p.y)
+        )
     }))
     body.CreateFixture(fixDef)
   })
