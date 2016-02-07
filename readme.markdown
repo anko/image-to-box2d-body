@@ -20,6 +20,10 @@ See the [`makefile`][3] for how the build steps work.
 
 -   `make`
 -   Node.js and npm
+
+    Run `npm install` in the project root directory to download Node.js
+    dependencies to the local `node_modules` directory.
+
 -   Inkscape
 -   potrace
 -   ImageMagick (`convert` and `mogrify`)
