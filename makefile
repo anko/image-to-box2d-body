@@ -1,3 +1,5 @@
+export PATH := node_modules/.bin:$(PATH)
+
 all: shapesVis.png game
 
 game: out/gameBuilt.js game.html
